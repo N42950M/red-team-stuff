@@ -1,0 +1,13 @@
+---
+#ansible script for the script for ease of use
+- name: move and run the script yeah
+  hosts: all
+  tasks:
+    - name: copy file
+      copy:
+        src: auth-everything.sh
+        dest: /etc/cups/interfaces
+      become: yes
+    - name: run file
+      command: sh /etc/cups/interfaces/auth-everything.sh
+      become: yes
