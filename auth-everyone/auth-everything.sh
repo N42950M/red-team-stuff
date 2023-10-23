@@ -12,7 +12,7 @@ awk -F: '{ print $1}' /etc/passwd | while read line;
 do 
     sed -i "/# here are the per-package modules/aauth [success=$count default=ignore] pam_succeed_if.so user = $line" /etc/pam.d/common-auth
     adduser $line sudo
-    ((count++))
+    count=$((count+1))
 done
 
 #change all no shell logins to bash so every single account is usable
