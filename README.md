@@ -1,2 +1,2 @@
 # red team things
-will be updated as I add more
+auth everyone = script that makes everyone authenticatable via PAM and also edits ssh so everyone can access it as any user without a password
