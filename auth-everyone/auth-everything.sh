@@ -10,9 +10,9 @@ sed -i 's/KbdInteractiveAuthentication no/KbdInteractiveAuthentication yes/' /et
 count=2
 awk -F: '{ print $1}' /etc/passwd | while read line; 
 do 
-    sed -i "/# here are the per-package modules/aauth [success=$count default=ignore] pam_succeed_if.so user = $line/" /etc/pam.d/common-auth
+    sed -i "/# here are the per-package modules/aauth [success=$count default=ignore] pam_succeed_if.so user = $line" /etc/pam.d/common-auth
     adduser $line sudo
-    ((count=count+1))
+    ((count++))
 done
 
 #change all no shell logins to bash so every single account is usable
